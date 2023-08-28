@@ -6,7 +6,7 @@ const BlogLayout = () => {
       <nav>
         <ul>
           <li>
-            <Link to="/">Dashboard</Link>
+            <Link to="/">Home</Link>
           </li>
           <li>
             <Link to="/Posts">Posts</Link>
@@ -14,9 +14,12 @@ const BlogLayout = () => {
           <li>
             <Link to="/Users">Users</Link>
           </li>
+          <li>
+            <Link to="/Comments">Comments</Link>
+          </li>
         </ul>
       </nav>
-      <div className="m-10">
+      <div>
         <h1>Out of above is shown below</h1>
       </div>
       <Outlet />
@@ -24,4 +27,4 @@ const BlogLayout = () => {
   );
 };
 
-export default WorkoutLayout;
+export default BlogLayout;

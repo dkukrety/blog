@@ -1,12 +1,13 @@
-import logo from './logo.svg';
-import './App.css';
-import PostsComponent from './Components/PostsComponent';
+import "./App.css";
+import BlogComponentRouter from "./Components/BlogRouterComponent";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (
     <>
-    <PostsComponent/>
-    
+      {/* <PostsComponent />
+      <CommmentComponent /> */}
+      <BlogComponentRouter />
     </>
   );
 }
