@@ -16,8 +16,9 @@ const UsersComponent = () => {
 
   return (
     <div>
-      <h1>{users.name}</h1>
-      <p>{users.email}</p>
+      {users.map((user) => (
+        <p>{user.name}</p>
+      ))}
     </div>
   );
 };
