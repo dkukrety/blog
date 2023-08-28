@@ -1,11 +1,12 @@
-import logo from "./logo.svg";
-import "./App.css";
-import UsersComponent from "./Components/UsersComponent";
+import logo from './logo.svg';
+import './App.css';
+import PostsComponent from './Components/PostsComponent';
 
 function App() {
   return (
     <>
-      <UsersComponent />
+    <PostsComponent/>
+    
     </>
   );
 }
