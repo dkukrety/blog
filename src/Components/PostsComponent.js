@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import Post from './Post'
+// import Post from './Post'
 import { Button } from 'reactstrap';
 
 function PostsComponent() {
@@ -12,6 +12,7 @@ function PostsComponent() {
       fetch('https://jsonplaceholder.typicode.com/posts') // Replace with your API URL
         .then(response => response.json())
         .then(posts => {
+          debugger
             setPosts(posts);
           setIsLoading(false);
         })
