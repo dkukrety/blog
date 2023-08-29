@@ -1,23 +1,22 @@
-import React, { useState, useEffect } from "react";
-// import Post from './Post'
-import { Button } from "reactstrap";
+import React, { useState, useEffect } from 'react'
+import { Button, Card, CardBody, CardTitle, CardSubtitle, CardText, } from 'reactstrap';
+
 
 function PostsComponent() {
-  const [posts, setPosts] = useState([]);
+    const [posts, setPosts] = useState([])
 
-  const [isLoading, setIsLoading] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     if (isLoading) {
-      fetch("https://jsonplaceholder.typicode.com/posts") // Replace with your API URL
-        .then((response) => response.json())
-        .then((posts) => {
-          debugger;
-          setPosts(posts);
+      fetch('https://jsonplaceholder.typicode.com/posts') // Replace with your API URL
+        .then(response => response.json())
+        .then(posts => {
+            setPosts(posts);
           setIsLoading(false);
         })
-        .catch((error) => {
-          console.error("Error fetching data:", error);
+        .catch(error => {
+          console.error('Error fetching data:', error);
           setIsLoading(false);
         });
     }
@@ -29,29 +28,34 @@ function PostsComponent() {
 
   return (
     <>
-      <div>
-        <div>
-          <Button color="info" onClick={handleClick}>
-            Posts
-          </Button>
+        <div className='container'>
+            <div>
+                <Button color="info" onClick={handleClick}>Posts</Button>
+            </div>
+      {isLoading ? (
+        <p>Loading...</p>
+      ) : (
+        
+               <div className='d-flex flex-row flex-wrap '>
+          {posts.map((post, index) => (
+            
+                 <Card key = {index} className='w-25'>
+                  <CardBody>
+                    <CardTitle tag="h5"><li key={post.title}>{post.title}</li></CardTitle>
+                    <CardSubtitle className="mb-2 text-muted" tag="h6"><li key={post.id}>{post.id}</li></CardSubtitle>
+                  </CardBody>
+                      <img alt="Card cap" src="https://picsum.photos/318/180" width="100%"/>
+                  <CardBody>
+                    <CardText><li key={post.body}>{post.body}</li></CardText>
+                  </CardBody>
+                </Card>     
+          ))}
         </div>
-        {isLoading ? (
-          <p>Loading...</p>
-        ) : (
-          <ul>
-            {posts.map((post) => (
-              <>
-                <li key={post.userId}>{post.userId}</li>
-                <li key={post.id}>{post.id}</li>
-                <li key={post.title}>{post.title}</li>
-                <li key={post.body}>{post.body}</li>
-              </>
-            ))}
-          </ul>
-        )}
-      </div>
+      )}
+    </div>
+    
     </>
   );
 }
 
-export default PostsComponent;
+export default PostsComponent
