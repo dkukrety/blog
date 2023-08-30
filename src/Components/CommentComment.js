@@ -3,6 +3,7 @@ import axios from "axios";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { Pagination, PaginationItem, PaginationLink } from "reactstrap";
+import "./comments.css";
 
 const baseURL = "https://jsonplaceholder.typicode.com/comments";
 
@@ -39,14 +40,16 @@ function paginationComponent() {
 
 function CommentCard(comment) {
   return (
-    <Card style={{ display: "flex", flexDirection: "row", width: "18rem" }}>
-      <Card.Img variant="top" src="holder.js/100px180" />
-      <Card.Body>
-        <Card.Title>{comment.name}</Card.Title>
-        <Card.Text>{comment.body}</Card.Text>
-        <Button variant="primary">{comment.email}</Button>
-      </Card.Body>
-    </Card>
+    <div>
+      <Card>
+        <Card.Img variant="top" src="holder.js/100px180" />
+        <Card.Body>
+          <Card.Title>{comment.name}</Card.Title>
+          <Card.Text>{comment.body}</Card.Text>
+          <Button variant="primary">{comment.email}</Button>
+        </Card.Body>
+      </Card>
+    </div>
   );
 }
 
@@ -74,12 +77,13 @@ const CommentComponent = () => {
 
   return (
     <>
-      {comments
-        .slice(pageSize * currentPage, (currentPage + 1) * pageSize)
-        .map((comment) => (
-          <>{CommentCard(comment)}</>
-        ))}
-
+      <div className="CommentLayout">
+        {comments
+          .slice(pageSize * currentPage, (currentPage + 1) * pageSize)
+          .map((comment) => (
+            <>{CommentCard(comment)}</>
+          ))}
+      </div>
       {
         <Pagination>
           {[...Array(totalPages)].map((page, i) => (

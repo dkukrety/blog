@@ -3,4 +3,7 @@
     flex-wrap: wrap;
     justify-content: space-around;
     row-gap: 20px;
+    margin: 10px;
+    background-color: aqua;
+    width: 200px;
 }
