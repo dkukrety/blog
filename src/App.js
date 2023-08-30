@@ -1,14 +1,11 @@
+import { Pagination } from "react-bootstrap";
 import "./App.css";
 import BlogComponentRouter from "./Components/BlogRouterComponent";
-import "bootstrap/dist/css/bootstrap.min.css";
-import PostsComponent from "./Components/PostsComponent";
 
 function App() {
   return (
     <>
-      <PostsComponent/>
-      {/* <CommmentComponent /> */}
-      {/* <BlogComponentRouter /> */}
+      <BlogComponentRouter />
     </>
   );
 }
