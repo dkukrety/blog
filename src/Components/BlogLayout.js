@@ -15,11 +15,20 @@ const BlogLayout = () => {
             <Link to="/Users">Users</Link>
           </li>
           <li>
+            <Link to="/Album">Album Page</Link>
+          </li>
+          <li>
+            <Link to="/Photos">Photos</Link>
+          </li>
+          <li>
+            <Link to="/Albums">Albums</Link>
+          </li>
+          <li>
             <Link to="/Comments">Comments</Link>
           </li>
         </ul>
       </nav>
-      <div>
+      <div className="m-10">
         <h1>Out of above is shown below</h1>
       </div>
       <Outlet />
